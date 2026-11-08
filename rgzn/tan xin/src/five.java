@@ -22,10 +22,23 @@ public class five {
             }
         }
 
-        int p = 0;
+        int lead = -1;
+        for (int i = 1; i < 10; i++) {
+            if (d[i] >= 2) { lead = i; break; }
+        }
+        if (lead != -1) {
+            sb.append(lead).append(lead);
+            d[lead] -= 2;
+        }
+        int p =0;
+        if(lead == -1){
+            p=0;
+        }else{
+            p=1;
+        }
         int q = 0;
         for(int i=0;i<d.length;i++){
-            if(d[i]%2==1 && d[i]>2){
+            if(d[i]%2==1 ){
 
                 d[i] = d[i]-1;
             }
@@ -47,16 +60,16 @@ public class five {
 
 
         }
-        sb.insert(p,uu);
+        if(u==1){sb.insert(p,uu);}
 
 
 
 
         if(o){
             System.out.println("-1");
+
         }else{
             System.out.println(sb);
-
         }
     }
 }
